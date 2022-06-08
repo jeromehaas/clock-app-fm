@@ -2,6 +2,8 @@ const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const { watch } = require('gulp');
 const { scssTask } = require('./scss-task');
+const { jsTask } = require('./js-task');
+const { imageTask } = require('./image-task');
 
 const watchTask = ( done ) => {
 	browserSync.init({
@@ -10,7 +12,9 @@ const watchTask = ( done ) => {
 		port: 3007,
 		ui: { port: 3000 }
 	});	
-	watch(['../src/scss/configs/reset.scss', '../src/scss/configs/variables.scss', '../src/scss/configs/fonts.scss', '../src/scss/configs/global.scss', '../src/scss/configs/typography.scss'], scssTask).on('change', browserSync.reload);
+	watch(['../src/scss/configs/*.scss'], scssTask).on('change', browserSync.reload);
+	watch(['../src/js/hello-world.js'], jsTask).on('change', browserSync.reload);
+	watch(['../src/media/**/*.+(png|jpg|jpeg|gif'], imageTask).on('change', browserSync.reload);
 };
 
 module.exports = {
