@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babel-loader": "^8.2.5",
+    "browser-sync": "^2.27.10",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^4.0.1",
+    "node-sass": "^7.0.1",
+    "sass": "^1.52.2",
+    "webpack-stream": "^7.0.0"
+  },
+  "name": "clock-app-fm",
+  "version": "1.0.0",
+  "description": "A challenge from FrontendMentor",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp dev --gulpfile ./taskrunner/gulpfile.js",
+    "dev": "gulp dev --gulpfile ./taskrunner/gulpfile.js",
+    "build": "gulp build --gulpfile ./taskrunner/gulpfile.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeromehaas/clock-app-fm.git"
+  },
+  "author": "jeromehaas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeromehaas/clock-app-fm/issues"
+  },
+  "homepage": "https://github.com/jeromehaas/clock-app-fm#readme"
+}
