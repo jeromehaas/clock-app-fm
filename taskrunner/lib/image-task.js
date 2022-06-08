@@ -1,8 +1,9 @@
 const gulp = require('gulp');
+const { dest } = require('gulp');
 const webp = require('gulp-webp');
 
 const imageTask = ( done ) => {
-	gulp.src(['../media/images/**/*.+(png|jpg|jpeg|gif)'])
+	gulp.src(['../media/images/*.+(png|jpg|gif)'])
 		.pipe(webp())
 		.pipe(dest('../media/images/'));
 	done();
