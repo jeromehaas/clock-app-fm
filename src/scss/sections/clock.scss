@@ -1,22 +1,27 @@
 .clock {
-  border: 10px solid red;
-  height: 100vh;
-  display: grid;
-  grid-template-areas: 
-    "quote ."
-    "greeting . "
-    "time ."
-    "location toggle";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto auto auto;
-  justify-content: start;
-  align-items: start;
+  border: 1px solid red;
+  
+  &__inner {
+    display: grid;
+    height: 100vh;
+    grid-template-areas: 
+      "quote ."
+      "greeting . "
+      "time ."
+      "location toggle";
+    grid-template-columns: auto 160px;
+    grid-template-rows: 1fr auto auto auto;
+    justify-content: start;
+    align-items: start;
+    padding: 56px 160px;
+  }
 
   &__quote, .quote {
     grid-area: quote;
     
     &__text {
       color: $white;
+      margin-bottom: 12px;
 
       &::before { content: "\""; }
       &::after { content: "\""; }
@@ -24,7 +29,7 @@
 
     &__author, .author {
       color: $white;
-
+      font-weight: 700;
 
     }
 
@@ -32,45 +37,115 @@
 
   &__greeting, .greeting {
     grid-area: greeting;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 
     &__icon {
       color: $white;
+      margin-right: 16px;
     }
 
     &__text {
-      color: 
-      $white;
+      color: $white;
     }
 
   }
 
   &__time, .time {
     grid-area: time;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    
+    
     &__time {
       color: $white;
+      margin-right: 32px;
+      font-size: 200px;
+      font-weight: 700;
+      line-height: 1;
     }
 
     &__timezone {
       color: $white;
+      margin-bottom: 12px;
+      font-size: 40px;
     }
 
   }
 
   &__location, .location {
     grid-area: location;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
 
     &__city {
       color: $white;
+      text-transform: uppercase;
+      margin-right: 16px;
+      font-size: 24px;
+      font-weight: 700;
+
+      &::after {
+        content: ",";
+      }
     }
 
     &__country {
       color: $white;
+      text-transform: uppercase;
+      font-size: 24px;
+      font-weight: 700;
     }
   }
 
-  &__toggle {
+  &__toggle, .toggle {
+    background-color: $white;
     grid-area: toggle;
+    width: 142px;
+    height: 56px;
+    border-radius: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 8px 8px 24px;
+    cursor: pointer;
+
+    &__input, .input {
+      width: 40px;
+      height: 40px;
+      background-color: $darkgrey;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-content: center;
+
+      &__icon {
+        color: $white;
+        font-size: 24px;
+        align-self: center;
+        transform: rotate(180deg);
+      }
+
+    }
+
+    &__label {
+      line-height: 1;
+      font-size: 18px; 
+      margin-top: 4px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: $black;
+      opacity: 0.5;
+    }
+
   }
 
 }
