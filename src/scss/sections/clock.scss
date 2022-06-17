@@ -1,0 +1,76 @@
+.clock {
+  border: 10px solid red;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: 
+    "quote ."
+    "greeting . "
+    "time ."
+    "location toggle";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto auto auto;
+  justify-content: start;
+  align-items: start;
+
+  &__quote, .quote {
+    grid-area: quote;
+    
+    &__text {
+      color: $white;
+
+      &::before { content: "\""; }
+      &::after { content: "\""; }
+    }
+
+    &__author, .author {
+      color: $white;
+
+
+    }
+
+  }
+
+  &__greeting, .greeting {
+    grid-area: greeting;
+
+    &__icon {
+      color: $white;
+    }
+
+    &__text {
+      color: 
+      $white;
+    }
+
+  }
+
+  &__time, .time {
+    grid-area: time;
+
+    &__time {
+      color: $white;
+    }
+
+    &__timezone {
+      color: $white;
+    }
+
+  }
+
+  &__location, .location {
+    grid-area: location;
+
+    &__city {
+      color: $white;
+    }
+
+    &__country {
+      color: $white;
+    }
+  }
+
+  &__toggle {
+    grid-area: toggle;
+  }
+
+}
