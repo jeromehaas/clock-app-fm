@@ -2,11 +2,15 @@
 	width: 100vw;
 	min-height: 100vh;
 	background-size: cover;
-	background-position: center;
+	background-position: 50%;
 	position: relative;
 	opacity: 0;
-	transition: all 2s ease;
+	transition: opacity 0.3s ease;
 	overflow: hidden;
+	animation-duration: 400s;
+	animation-name: backgroundSlide;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease;
 
 	&__overlay {
 		position: absolute;
@@ -17,7 +21,7 @@
 		background-color: $white;
 		pointer-events: none;
 		opacity: 1;
-		transition: all 2s ease;
+		transition: opacity 0.3s ease;
 		display: none;
 	}
 
@@ -38,4 +42,9 @@
 		}
 
 	}
+
+  @media (max-height: 800px) {
+   overflow-y: scroll;
+  }
+
 }

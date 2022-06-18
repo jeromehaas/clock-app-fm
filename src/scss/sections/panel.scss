@@ -24,14 +24,10 @@
 
   &__timezone {
     grid-area: timezone;
-    padding-bottom: 32px;
   }
 
   &__day-of-week {
     grid-area: day-of-the-week;
-    border-left: 1px solid $darkgrey;
-    padding-bottom: 32px;
-    padding-left: 64px;
   }
 
   &__day-of-year {
@@ -40,10 +36,94 @@
 
   &__week-number {
     grid-area: week-number;
+  }
+
+  &__timezone,
+  &__day-of-week,
+  &__day-of-year,
+  &__week-number {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  &__day-of-week,
+  &__week-number {
     border-left: 1px solid $darkgrey;
     padding-left: 64px;
   }
 
+  &__timezone,
+  &__day-of-week {
+    padding-bottom: 32px;
+  }
+
+    @media (max-width: 1250px) {
+
+    &__inner {
+      padding: 56px;
+    }
+
+  };
+
+  @media (max-width: 950px) {
+
+  &__inner {
+    grid-template-areas: 
+      "timezone" 
+      "day-of-the-year" 
+      "day-of-the-week"
+      "week-number";
+  }
+
+  &__day-of-week,
+  &__week-number {
+    border-left: none;
+    padding-left: 0;
+
+  }
+
+  &__timezone,
+  &__day-of-year,
+  &__week-number,
+  &__day-of-week {
+    padding-bottom: 32px;
+  }
+
+  &__timezone,
+  &__day-of-week,
+  &__day-of-year,
+  &__week-number {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  }
+
+    @media (max-width: 750px) {
+
+    &__timezone,
+    &__day-of-week,
+    &__day-of-year,
+    &__week-number {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+  }
+
+  }
+
+  @media (max-width: 400px) {
+
+    &__inner {
+      padding: 56px 24px;
+    }
+
+  }
 
 
 }

@@ -129,7 +129,7 @@ class App {
         if ( hour >= 5 && hour < 12 ) time = 'morning'; 
         if ( hour >= 12 && hour < 18 ) time  = 'afternoon'; 
         if ( hour >= 18 && hour <= 23 ) time = 'night'; 
-        let greeting = `Good ${time}, it\'s currently`;
+        let greeting = `Good ${time}`;
         this.print(this.elements.greeting.text, greeting);
     };
 
@@ -145,7 +145,7 @@ class App {
     displayTime = () => {
         const hour = moment().hour() < 10 ? `0${moment().hour()}` : moment().hour();
         const minute = moment().minute() < 10 ? `0${moment().minute()}` : moment().minute();
-        his.print(this.elements.time.time.hour, hour);
+        this.print(this.elements.time.time.hour, hour);
         this.print(this.elements.time.time.minute, minute);
     };
 
@@ -184,9 +184,11 @@ class App {
     togglePanel = () => { 
         if ( this.state.panel === 'inactive') {
             this.elements.clock.inner.style.height = `calc(100vh - 0px)`;
+            window.scrollTo(0, 0);
         } else {
             const heightOfPanel = this.elements.panel.body.clientHeight;
             this.elements.clock.inner.style.height = `calc(100vh - ${heightOfPanel}px)`;
+            window.scrollTo(0, document.body.scrollHeight);
         };
     }
     
@@ -204,6 +206,7 @@ class App {
         if (!element || !value) return;
         element.innerText = value;
     };
+
 
 };
 
