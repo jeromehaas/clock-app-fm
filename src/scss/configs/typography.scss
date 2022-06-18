@@ -1,74 +1,58 @@
 * {
-	font-family: 'Inter', sans-serif;
-	font-size: 18px;
-	line-height: 1.5
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 @media (max-width: 950px) {
-
-    .clock__time {
-
-      & .time__hour, 
-      & .time__points,
-      & .time__minute {        
-        font-size: 150px !important;
-      }
-
-	  & .time__timezone {
-		margin-bottom: 8px !important;
-	  }
-
-	  
+  .clock__time {
+    & .time__hour,
+    & .time__points,
+    & .time__minute {
+      font-size: 150px !important;
     }
-	
-	.panel .value {
-	  font-size: 32px !important;
-	}
 
+    & .time__timezone {
+      margin-bottom: 8px !important;
+    }
+  }
+
+  .panel .value {
+    font-size: 32px !important;
+  }
 }
 
-
 @media (max-width: 750px) {
-
-    .clock__time {
-
-      & .time__hour, 
-      & .time__points,
-      & .time__minute {        
-        font-size: 100px !important;
-      }
-
-	}
-
+  .clock__time {
+    & .time__hour,
+    & .time__points,
+    & .time__minute {
+      font-size: 100px !important;
+    }
+  }
 }
 
 @media (max-width: 550px) {
+  .clock__time {
+    & .time__hour,
+    & .time__points,
+    & .time__minute {
+      font-size: 60px !important;
+    }
 
-    .clock__time {
-
-      & .time__hour, 
-      & .time__points,
-      & .time__minute {        
-        font-size: 60px !important;
-      }
-	    
-	  & .time__timezone {
-    	font-size: 24px !important;
-		margin-bottom: 0 !important;
-  	  }
-
-	}
-
-  	.clock__location, .location {
-		margin-bottom: 32px !important;
-
-		&__city,
-		&__country {
-			font-size: 18px !important;
-		}
-
-		
-
+    & .time__timezone {
+      font-size: 24px !important;
+      margin-bottom: 0 !important;
+    }
   }
 
+  .clock__location,
+  .location {
+    margin-bottom: 32px !important;
+
+    &__city,
+    &__country {
+      font-size: 18px !important;
+    }
+  }
 }

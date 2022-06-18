@@ -1,50 +1,48 @@
 .page {
-	width: 100vw;
-	min-height: 100vh;
-	background-size: cover;
-	background-position: 50%;
-	position: relative;
-	opacity: 0;
-	transition: opacity 0.3s ease;
-	overflow: hidden;
-	animation-duration: 400s;
-	animation-name: backgroundSlide;
-	animation-iteration-count: infinite;
-	animation-timing-function: ease;
+  width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: 50%;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+  animation-duration: 400s;
+  animation-name: backgroundSlide;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
 
-	&__overlay {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-color: $white;
-		pointer-events: none;
-		opacity: 1;
-		transition: opacity 0.3s ease;
-		display: none;
-	}
-
-	&--day {
-		background-image: url('/media/images/background-day.webp');
-	}
-
-	&--night {
-		background-image: url('/media/images/background-night.webp');
-	}
-
-	&--day, 
-	&--night {
-		opacity: 1;
-
-		& .page__overlay {
-			opacity: 0;
-		}
-
-	}
-
-  @media (max-height: 800px) {
-   overflow-y: scroll;
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $white;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    display: none;
   }
 
+  &--day {
+    background-image: url("/media/images/background-day.webp");
+  }
+
+  &--night {
+    background-image: url("/media/images/background-night.webp");
+  }
+
+  &--day,
+  &--night {
+    opacity: 1;
+
+    & .page__overlay {
+      opacity: 0;
+    }
+  }
+
+  @media (max-height: 800px) {
+    overflow-y: scroll;
+  }
 }

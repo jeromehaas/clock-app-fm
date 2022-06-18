@@ -1,10 +1,9 @@
 .clock {
-  
   &__inner {
     display: grid;
     height: 100vh;
     min-height: 800px;
-    grid-template-areas: 
+    grid-template-areas:
       "quote ."
       "greeting . "
       "time toggle"
@@ -15,30 +14,37 @@
     align-items: start;
     padding: 56px 160px;
     transition: all 0.3s ease;
+    max-width: 2220px;
+    margin: 0 auto;
   }
 
-  &__quote, .quote {
+  &__quote,
+  .quote {
     grid-area: quote;
     max-width: 400px;
     margin-bottom: 40px;
-    
+
     &__text {
       color: $white;
       margin-bottom: 12px;
 
-      &::before { content: "\""; }
-      &::after { content: "\""; }
+      &::before {
+        content: '"';
+      }
+      &::after {
+        content: '"';
+      }
     }
 
-    &__author, .author {
+    &__author,
+    .author {
       color: $white;
       font-weight: 700;
-
     }
-
   }
 
-  &__greeting, .greeting {
+  &__greeting,
+  .greeting {
     grid-area: greeting;
     display: flex;
     flex-direction: row;
@@ -47,34 +53,34 @@
     text-transform: uppercase;
     letter-spacing: 4px;
     margin-bottom: 32px;
-    
+
     &__icon {
       color: $white;
       line-height: 1.5;
       margin-right: 16px;
     }
-    
-    &__text, 
-    &__status  {
+
+    &__text,
+    &__status {
       font-size: 20px;
       color: $white;
     }
-
   }
 
-  &__time, .time {
+  &__time,
+  .time {
     grid-area: time;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
     margin-bottom: 32px;
-    
-    &__time, .time {
-      
-      &__hour, 
+
+    &__time,
+    .time {
+      &__hour,
       &__points,
-      &__minute {        
+      &__minute {
         color: $white;
         font-size: 200px;
         font-weight: 700;
@@ -85,13 +91,12 @@
         margin-right: 32px;
       }
 
-      &__points  {
+      &__points {
         animation-duration: 1s;
         animation-name: timePointsPulse;
         animation-iteration-count: infinite;
         animation-timing-function: ease;
       }
-
     }
 
     &__timezone {
@@ -99,15 +104,14 @@
       margin-bottom: 12px;
       font-size: 40px;
     }
-
   }
 
-  &__location, .location {
+  &__location,
+  .location {
     grid-area: location;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-
 
     &__city {
       color: $white;
@@ -116,27 +120,27 @@
       font-size: 24px;
       font-weight: 700;
       letter-spacing: 4px;
-      
+
       &::after {
         content: ",";
         color: $white;
       }
-    
     }
 
     &__country {
       color: $white;
       text-transform: uppercase;
       font-size: 24px;
-      font-weight: 700;  @media (max-height: 800px) {
+      font-weight: 700;
+      @media (max-height: 800px) {
         overflow-y: scroll;
-       }
+      }
       letter-spacing: 4px;
     }
-
   }
 
-  &__toggle, .toggle {
+  &__toggle,
+  .toggle {
     background-color: $white;
     grid-area: toggle;
     width: 160px;
@@ -150,7 +154,8 @@
     cursor: pointer;
     align-self: end;
 
-    &__input, .input {
+    &__input,
+    .input {
       width: 40px;
       height: 40px;
       background-color: $lightgrey;
@@ -168,12 +173,11 @@
         transform: rotate(180deg);
         transition: all 0.5s ease;
       }
-
     }
 
     &__label {
       line-height: 1;
-      font-size: 18px; 
+      font-size: 18px;
       margin-top: 4px;
       font-weight: 700;
       letter-spacing: 4px;
@@ -183,7 +187,6 @@
     }
 
     &--inactive {
-      
       & .input__icon {
         transform: rotate(0deg);
       }
@@ -191,28 +194,22 @@
       & .input {
         background-color: $darkgrey;
       }
-      
-
     }
-
   }
 
   @media (max-width: 1250px) {
-
     &__inner {
       padding: 56px;
     }
-
   }
 
-   @media (max-width: 1050px) {
-
-   &__inner {
-      grid-template-areas: 
+  @media (max-width: 1050px) {
+    &__inner {
+      grid-template-areas:
         "quote"
         "greeting"
         "time"
-        "location" 
+        "location"
         "toggle";
       grid-template-columns: auto;
       grid-template-rows: 1fr auto auto auto auto;
@@ -221,33 +218,29 @@
     &__location {
       margin-bottom: 80px;
     }
-
   }
 
   @media (max-width: 950px) {
-
-    &__greeting, .greeting {
-
+    &__greeting,
+    .greeting {
       &__status {
         display: none;
       }
-
     }
 
-    &__greeting, 
+    &__greeting,
     &__time {
       margin-bottom: 16px !important;
     }
-
   }
 
   @media (max-width: 750px) {
- 
     &__inner {
-     min-height: 600px;
+      min-height: 600px;
     }
-    
-    &__toggle, .toggle {
+
+    &__toggle,
+    .toggle {
       width: 104px;
       height: 40px;
       border-radius: 40px;
@@ -255,52 +248,45 @@
       cursor: pointer;
       align-self: end;
 
-      &__input, .input {
+      &__input,
+      .input {
         width: 32px;
         height: 32px;
 
         &__icon {
           font-size: 16px;
         }
-
       }
 
       &__label {
-        font-size: 12px; 
+        font-size: 12px;
         margin-top: 2px;
       }
-
     }
-
   }
 
   @media (max-width: 550px) {
-    
-    &__greeting, 
+    &__greeting,
     &__time {
       margin-bottom: 8px !important;
     }
 
-    &__time, .time {
-
+    &__time,
+    .time {
       &__minute {
         margin-right: 8px !important;
       }
-
     }
-
   }
 
   @media (max-width: 400px) {
-
     &__inner {
       padding: 56px 24px;
     }
-
   }
 
   @media (max-height: 800px) {
-   overflow-y: scroll;
+    overflow-y: scroll;
   }
-
 }
+ 
