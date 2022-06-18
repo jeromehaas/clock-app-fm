@@ -16,6 +16,7 @@
     "gulp-webp": "^4.0.1",
     "inspirational-quotes": "^2.0.1",
     "moment": "^2.29.3",
+    "moment-timezone": "^0.5.34",
     "node-sass": "^7.0.1",
     "sass": "^1.52.2",
     "webpack-stream": "^7.0.0"

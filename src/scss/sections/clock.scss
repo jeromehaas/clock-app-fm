@@ -18,6 +18,7 @@
 
   &__quote, .quote {
     grid-area: quote;
+    max-width: 400px;
     
     &__text {
       color: $white;
@@ -64,12 +65,25 @@
     align-items: flex-end;
     
     
-    &__time {
-      color: $white;
+    &__time, .time {
       margin-right: 32px;
-      font-size: 200px;
-      font-weight: 700;
-      line-height: 1;
+
+      &__hour, 
+      &__points,
+      &__minute {        
+        color: $white;
+        font-size: 200px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      &__points  {
+        animation-duration: 1s;
+        animation-name: timePointsPulse;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease;
+      }
+
     }
 
     &__timezone {

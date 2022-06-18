@@ -10,7 +10,7 @@ const webp = require('gulp-webp');
 const { parallel, series, dest } = require('gulp');
 
 const scssTask = ( done ) => {
-	gulp.src(['../src/scss/configs/reset.scss', '../src/scss/configs/variables.scss', '../src/scss/configs/fonts.scss', '../src/scss/configs/global.scss', '../src/scss/configs/typography.scss', '../src/scss/configs/icons.scss', '../src/scss/sections/*.scss'  ])
+	gulp.src(['../src/scss/configs/reset.scss', '../src/scss/configs/variables.scss', '../src/scss/configs/fonts.scss', '../src/scss/configs/global.scss', '../src/scss/configs/typography.scss', '../src/scss/configs/icons.scss', '../src/scss/configs/keyframes.scss', '../src/scss/sections/*.scss'  ])
 		.pipe(plumber())
 		.pipe(concat('main.min.css'))
 		.pipe(sourcemaps.init())

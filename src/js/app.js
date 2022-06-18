@@ -1,4 +1,5 @@
 import moment from 'moment';
+import timezone from 'moment-timezone';
 import quotes from 'inspirational-quotes';
 
 class App {
@@ -17,7 +18,10 @@ class App {
                 body: document.querySelector('.page'),
             },
             time: {
-                time: document.querySelector('.clock__time .time__time'),
+                time: {
+                    hour: document.querySelector('.clock__time .time__hour'),
+                    minute: document.querySelector('.clock__time .time__minute'),
+                },
                 timezone: document.querySelector('.clock__time .time__timezone')
             },
             location: {
@@ -45,31 +49,58 @@ class App {
             panel: {
                 body: document.querySelector('.panel'),
                 inner: document.querySelector('.panel__inner'),
+                dayOfWeek: document.querySelector('.day-of-week .value'),
+                dayOfYear: document.querySelector('.day-of-year .value'),
+                weekNumber: document.querySelector('.week-number .value'),
+                timezone: document.querySelector('.timezone .value'),
             },
+            
         }
         this.init();
     }
 
     init = () => {
-        console.log('app started');
+        this.initialPrint();
         this.addEventListeners();
+        this.update();
+    };
+
+    initialPrint = () => {
         this.displayTime();
+        this.displayTimezone();
         this.displayLocation();
         this.displayGreeting();
         this.displayIcon();
         this.displayImage();
         this.displayQuote();
+        this.displayDayOfWeek();
+        this.displayDayOfYear();
+        this.displayWeekNumber();
     };
 
+    update = () => {
+        setInterval(() => this.displayTime(), 1000 * 5);
+        setInterval(() => this.displayQuote(), 1000 * 60 * 5);
+        setInterval(() => {
+            this.displayTimezone();
+            this.displayLocation();
+            this.displayGreeting();
+            this.displayIcon();
+            this.displayImage();
+            this.displayQuote();
+            this.displayDayOfWeek();
+            this.displayDayOfYear();
+            this.displayWeekNumber();
+        }, 1000 * 60 * 60 )
+    }
+
     addEventListeners = () => {
-        console.log(this.elements.toggle.body)
         this.elements.toggle.body.addEventListener('click', this.changePanelState);
     };
 
     displayLocation = async () => {
         const request = await fetch("https://ipinfo.io/json?token=d6fea2050249fa")
         const data = await request.json();
-        console.log(data);
         this.print(this.elements.location.city, data.city);
         this.print(this.elements.location.country, data.country);
     };
@@ -95,9 +126,8 @@ class App {
         let time = '';
         const hour  = moment().hour();
         if ( hour >= 0 && hour < 5 ) time  = 'night' 
-        if ( hour >= 5 && hour < 11 ) time = 'morning'; 
-        if ( hour >= 11 && hour < 13 ) time = 'midday'; 
-        if ( hour >= 13 && hour < 18 ) time  = 'afternoon'; 
+        if ( hour >= 5 && hour < 12 ) time = 'morning'; 
+        if ( hour >= 12 && hour < 18 ) time  = 'afternoon'; 
         if ( hour >= 18 && hour <= 23 ) time = 'night'; 
         let greeting = `Good ${time}, it\'s currently`;
         this.print(this.elements.greeting.text, greeting);
@@ -113,13 +143,37 @@ class App {
     };
 
     displayTime = () => {
-        const locale = moment.locale('de-ch');
-        const time = moment().format('LT');
-        this.print(this.elements.time.time, time);
-        setInterval(() => {
-            this.print(this.elements.time.time, time);
-        }, 30000);
+        const hour = moment().hour();
+        const minute = moment().minute();
+        this.print(this.elements.time.time.hour, hour);
+        this.print(this.elements.time.time.minute, minute);
     };
+
+    displayTimezone = async () => {
+        const request = await fetch("https://ipinfo.io/json?token=d6fea2050249fa");
+        const data = await request.json();
+        const timezoneLong = moment().tz(data.timezone).format('z');
+        const timezoneShort = data.timezone;
+        this.print(this.elements.time.timezone, timezoneLong);
+        this.print(this.elements.panel.timezone, timezoneShort);
+    };
+
+    displayDayOfWeek = () => {
+        const dayOfWeek = moment().day();
+        this.print(this.elements.panel.dayOfWeek, dayOfWeek);
+    };
+
+    displayDayOfYear = () => {
+        const dayOfYear = moment().dayOfYear();
+        this.print(this.elements.panel.dayOfYear, dayOfYear);
+    };
+
+
+    displayWeekNumber = () => {
+        const weekNumber = moment().week();
+        this.print(this.elements.panel.weekNumber, weekNumber);
+
+    }
 
     changePanelState = () => {
         this.state.panel === 'inactive' ? this.state.panel= 'active' : this.state.panel = 'inactive';
@@ -132,7 +186,6 @@ class App {
             this.elements.clock.inner.style.height = `calc(100vh - 0px)`;
         } else {
             const heightOfPanel = this.elements.panel.body.clientHeight;
-            console.log(heightOfPanel);
             this.elements.clock.inner.style.height = `calc(100vh - ${heightOfPanel}px)`;
         };
     }
@@ -148,7 +201,7 @@ class App {
     }
 
     print = (element, value) => {
-        if (!element || !value) return console.log('Error: provide element and value to print');
+        if (!element || !value) return;
         element.innerText = value;
     };
 
