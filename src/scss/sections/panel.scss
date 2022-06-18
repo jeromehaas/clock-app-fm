@@ -1,4 +1,49 @@
 .panel {
-  border: 10px solid blue;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4.7742px); 
+
+  &__inner {
+    padding: 56px 160px;
+    display: grid;
+    grid-template-areas: 
+      "timezone day-of-the-week"
+      "day-of-the-year week-number";
+  }
+
+  & .label {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;;
+  }
+
+  & .value {
+    font-size: 56px;
+    font-weight: 700;
+  }
+
+  &__timezone {
+    grid-area: timezone;
+    padding-bottom: 32px;
+  }
+
+  &__day-of-week {
+    grid-area: day-of-the-week;
+    border-left: 1px solid $darkgrey;
+    padding-bottom: 32px;
+    padding-left: 64px;
+  }
+
+  &__day-of-year {
+    grid-area: day-of-the-year;
+  }
+
+  &__week-number {
+    grid-area: week-number;
+    border-left: 1px solid $darkgrey;
+    padding-left: 64px;
+  }
+
+
 
 }

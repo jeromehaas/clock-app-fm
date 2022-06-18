@@ -1,7 +1,41 @@
 .page {
-	background-image: url('/media/images/background-day.webp');
 	width: 100vw;
 	min-height: 100vh;
 	background-size: cover;
 	background-position: center;
+	position: relative;
+	opacity: 0;
+	transition: all 2s ease;
+	overflow: hidden;
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: $white;
+		pointer-events: none;
+		opacity: 1;
+		transition: all 2s ease;
+		display: none;
+	}
+
+	&--day {
+		background-image: url('/media/images/background-day.webp');
+	}
+
+	&--night {
+		background-image: url('/media/images/background-night.webp');
+	}
+
+	&--day, 
+	&--night {
+		opacity: 1;
+
+		& .page__overlay {
+			opacity: 0;
+		}
+
+	}
 }
