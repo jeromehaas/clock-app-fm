@@ -143,9 +143,9 @@ class App {
     };
 
     displayTime = () => {
-        const hour = moment().hour();
-        const minute = moment().minute();
-        this.print(this.elements.time.time.hour, hour);
+        const hour = moment().hour() < 10 ? `0${moment().hour()}` : moment().hour();
+        const minute = moment().minute() < 10 ? `0${moment().minute()}` : moment().minute();
+        his.print(this.elements.time.time.hour, hour);
         this.print(this.elements.time.time.minute, minute);
     };
 

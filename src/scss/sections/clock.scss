@@ -143,12 +143,13 @@
     &__input, .input {
       width: 40px;
       height: 40px;
-      background-color: $darkgrey;
+      background-color: $lightgrey;
       border-radius: 50%;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-content: center;
+      transition: all 0.5s ease;
 
       &__icon {
         color: $white;
@@ -176,6 +177,11 @@
       & .input__icon {
         transform: rotate(0deg);
       }
+
+      & .input {
+        background-color: $darkgrey;
+      }
+      
 
     }
 
