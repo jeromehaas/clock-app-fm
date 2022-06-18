@@ -1,67 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de-ch">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Clock App</title>
 	<link rel="stylesheet" href="css/main.min.css">
+	<link rel="icon" href="media/favicons/favicon.ico">
 </head>
 <body class="page">
+	<div class="page__overlay"></div>
 
 	<div class="clock">
-	
-		<div class="clock__quote quote">
-			<p class="quote__text">The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.</p>
-			<p class="quote__author">Ada Lovelace</p>
-		</div>
+		<div class="clock__inner">
 
-		<div class="clock__greeting greeting">
-			<i class="greeting__icon icon icon--sun"></i>
-			<p class="greeting__text">Good morning, it's currently</p>
-		</div>
+			
+			<div class="clock__quote quote">
+				<p class="quote__text"></p>
+				<p class="quote__author"></p>
+			</div>
+			
+			<div class="clock__greeting greeting">
+				<i class="greeting__icon icon"></i>
+				<p class="greeting__text"></p>
+				<p class="greeting__status">, it's currently</p>
+			</div>
+			
+			<div class="clock__time time">
+				<p class="time__hour"></p>
+				<p class="time__points">:</p>
+				<p class="time__minute"></p>
+			<p class="time__timezone"></p>
+			</div>
+			
+			<div class="clock__location location">
+				<p class="location__city">Lucerne</p>
+				<p class="location__country">CH</p>
+			</div>
+		
 
-		<div class="clock__time time">
-			<p class="time__time">23:14</p>
-			<p class="time__timezone">CET</p>
+			<div class="clock__toggle toggle toggle--inactive">
+				<p class="toggle__label label">
+					LESS
+				</p>
+				<div class="toggle__input input">
+					<i class="input__icon icon icon--arrow"></i>
+				</div>
+            </div>
+			
 		</div>
-
-		<div class="clock__location location">
-			<p class="location__city">Lucerne</p>
-			<p class="location__country">CH</p>
-		</div>
-
-		<div class="clock__toggle">
-			<input type="checkbox">
-      <span>toggle</span>
-		</div>
-
 	</div>
 
 	<div class="panel">
+		<div class="panel__inner">
 
-		<div class="panel__timezone timezone">
-			<p class="timezone__label label">current timezone</p>
-			<p class="timezone__value value">Europe/London</p>
+			<div class="panel__timezone timezone">
+				<p class="timezone__label label">current timezone</p>
+				<p class="timezone__value value">/</p>
+			</div>
+			
+			<div class="panel__day-of-week day-of-week">
+				<p class="day-of-week__label label">day of the week</p>
+				<p class="day-of-week__value value"></p>
+			</div>
+			
+			<div class="panel__day-of-year day-of-year">
+				<p class="day-of-year__label label">day of the year</p>
+				<p class="day-of-year__value value"></p>
+			</div>
+			
+			<div class="panel__week-number week-number">
+				<p class="week-number__label label">week number</p>
+				<p class="week-number__value value"></p>
+			</div>
+			
+			</div>
 		</div>
-
-		<div class="panel__day-of-week day-of-week">
-			<p class="day-of-week__label label">day of the week</p>
-			<p class="day-of-week__value value">5</p>
-		</div>
-	
-		<div class="panel__day-of-year day-of-year">
-			<p class="day-of-year__label label">day of the year</p>
-			<p class="day-of-year__value value">295</p>
-		</div>
-
-		<div class="panel__week-number week-number">
-			<p class="week-number__label label">week number</p>
-			<p class="week-number__value value">42</p>
-		</div>
-
-	</div>
-	
-	<script src="js/main.build.js"></script>
-</body>
-</html>
+		
+		<script src="js/main.build.js"></script>
+	</body>
+	</html>

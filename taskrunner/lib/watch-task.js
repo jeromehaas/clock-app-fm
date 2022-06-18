@@ -13,7 +13,7 @@ const watchTask = ( done ) => {
 		ui: { port: 3000 }
 	});	
 	watch(['../src/scss/configs/*.scss', '../src/scss/sections/*.scss'], scssTask).on('change', browserSync.reload);
-	watch(['../src/js/hello-world.js'], jsTask).on('change', browserSync.reload);
+	watch(['../src/js/app.js'], jsTask).on('change', browserSync.reload);
 	watch(['../src/media/images/*.+(png|jpg|jpeg|gif'], imageTask).on('change', browserSync.reload);
 };
 

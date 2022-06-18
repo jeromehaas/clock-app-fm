@@ -1,2 +1,3 @@
-import HelloWorld from './hello-world';
-const helloWorld = new HelloWorld();
+import App from './app';
+const app = new App();
+app.init();
